@@ -45,7 +45,4 @@ class ProductManager {
     }
 }
 
-//const pm = new ProductManager()
-//tm.addProduct = {title, description, price, thumbnail, code, stock}
-
 module.exports = ProductManager
