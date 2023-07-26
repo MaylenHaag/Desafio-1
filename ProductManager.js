@@ -6,7 +6,7 @@ class ProductManager {
     }
 
     addProduct(product) {
-        
+
         if (!product.title || !product.description || !product.price || !product.thumbnail || !product.code || !product.stock){
             return 'Todos los campos son obligatorios.'
         }
@@ -23,15 +23,29 @@ class ProductManager {
 
     }
 
-    #generateId(){
+    #generateId() {
         if (this.#products.length === 0) {
             return 1 
         }
         return this.#products[this.#products.length-1].id + 1
     }
 
+    getProducts() {
+        return this.#products
+    }
 
+    getProductById(id) {
+        const found = this.#products.find(item => item.id === id)
+
+        if (!found) {
+            return 'Id no encontrado.'
+        }
+
+        return found
+    }
 }
 
-const pm = new ProductManager()
-tm.addProduct = {title, description, price, thumbnail, code, stock}
+//const pm = new ProductManager()
+//tm.addProduct = {title, description, price, thumbnail, code, stock}
+
+module.exports = ProductManager
